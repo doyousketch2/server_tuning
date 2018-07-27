@@ -3,7 +3,7 @@
 # server_tuning
 Minetest server script, to dynamically allocate resources as players join and part  
 
-![image](https://raw.githubusercontent.com/doyousketch2/server_tuning/master/img.png)  
+![image](https://raw.githubusercontent.com/doyousketch2/server_tuning/master/screenshot.png)  
 
 ---
 
