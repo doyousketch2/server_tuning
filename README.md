@@ -8,7 +8,7 @@ Minetest server script, to dynamically allocate resources as players join and pa
 ---
 
 Todo:  
-- [ ] calculate values based on # of active players  
-- [ ] clamp to min / max  
-- [ ] tell Minetest to actually set values  
+- [x] calculate values based on # of active players  
+- [x] clamp to min / max  
+- [x] tell Minetest to actually set values  
 - [ ] test if it does as expected  
