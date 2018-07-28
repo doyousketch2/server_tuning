@@ -11,8 +11,8 @@ local printout_lbms = false
 -- set false if you don't need extra text in debug.txt
 --=====================================
 
-local ver  = 0
-local version  = '0.2'
+local ver  = 0  -- placeholder for ver in settings
+local version  = '0.3'  -- actual script version
 local activeplayers  = 0
 
 local col1  = '#006666'
@@ -41,10 +41,10 @@ local mod_storage  = minetest .get_mod_storage()
 
 --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 --  WARNING:  uncomment the next line to COMPLETELY CLEAR [server_tuning] settings, if need be.
-mod_storage :from_table()
+--  mod_storage :from_table()
 
 --  uncomment next line to PRINT out the contents of [server_tuning] settings.
-print( dump( mod_storage :to_table() ))
+--  print( dump( mod_storage :to_table() ))
 
 --=========================================================
 
@@ -265,7 +265,7 @@ local current_liquid  = round( step_liquid * multiplier )
 xpcall(  function()  ver  = tonumber( mod_storage :get_string( 'ver' ) )  or 0  end,
          function()  end  )
 
-if ver > 0 then
+if ver < tonumber( version ) then
   xpcall(  -- protected call, so that it can fall back to default values, if none exist.
     function()
       lo_bsd  = mod_storage :get_int( 'lo_bsd' )
@@ -410,8 +410,7 @@ local function show_menu( playername )
     ..'label[3.8,1;' ..color( col1, "Low" ) ..']'
     ..'label[7.6,1;' ..color( col2, "Current" ) ..']'
     ..'label[10.8,1;' ..color( col3, "High" ) ..']'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,2;max_bsd]'
 
     ..'button[3,1.8;0.75,1;lo_bsd_d;v]'
@@ -423,8 +422,7 @@ local function show_menu( playername )
     ..'button[10,1.8;0.75,1;hi_bsd_d;v]'
     ..'label[11,2;' ..color( col3, hi_bsd ) ..']'
     ..'button[12.8,1.8;0.75,1;hi_bsd_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,3;max_sbspc]'
 
     ..'button[3,2.8;0.75,1;lo_sbspc_d;v]'
@@ -436,8 +434,7 @@ local function show_menu( playername )
     ..'button[10,2.8;0.75,1;hi_sbspc_d;v]'
     ..'label[11,3;' ..color( col3, hi_sbspc ) ..']'
     ..'button[12.8,2.8;0.75,1;hi_sbspc_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,4;max_bgd]'
 
     ..'button[3,3.8;0.75,1;lo_bgd_d;v]'
@@ -449,8 +446,7 @@ local function show_menu( playername )
     ..'button[10,3.8;0.75,1;hi_bgd_d;v]'
     ..'label[11,4;' ..color( col3, hi_bgd ) ..']'
     ..'button[12.8,3.8;0.75,1;hi_bgd_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,5;chunk]'
 
     ..'button[3,4.8;0.75,1;lo_chunk_d;v]'
@@ -462,8 +458,7 @@ local function show_menu( playername )
     ..'button[10,4.8;0.75,1;hi_chunk_d;v]'
     ..'label[11,5;' ..color( col3, hi_chunk ) ..']'
     ..'button[12.8,4.8;0.75,1;hi_chunk_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,6;active_br]'
 
     ..'button[3,5.8;0.75,1;lo_br_d;v]'
@@ -475,8 +470,7 @@ local function show_menu( playername )
     ..'button[10,5.8;0.75,1;hi_br_d;v]'
     ..'label[11,6;' ..color( col3, hi_br ) ..']'
     ..'button[12.8,5.8;0.75,1;hi_br_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,7;active_osrb]'
 
     ..'button[3,6.8;0.75,1;lo_osrb_d;v]'
@@ -488,8 +482,7 @@ local function show_menu( playername )
     ..'button[10,6.8;0.75,1;hi_osrb_d;v]'
     ..'label[11,7;' ..color( col3, hi_osrb ) ..']'
     ..'button[12.8,6.8;0.75,1;hi_osrb_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,8;item_entity_ttl]'
 
     ..'button[3,7.8;0.75,1;lo_ttl_d;v]'
@@ -501,8 +494,7 @@ local function show_menu( playername )
     ..'button[10,7.8;0.75,1;hi_ttl_d;v]'
     ..'label[11,8;' ..color( col3, hi_ttl ) ..']'
     ..'button[12.8,7.8;0.75,1;hi_ttl_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,9;liquid_loop_max]'
 
     ..'button[3,8.8;0.75,1;lo_loop_d;v]'
@@ -514,8 +506,7 @@ local function show_menu( playername )
     ..'button[10,8.8;0.75,1;hi_loop_d;v]'
     ..'label[11,9;' ..color( col3, hi_loop ) ..']'
     ..'button[12.8,8.8;0.75,1;hi_loop_u;^]'
-
-
+--~~~~~~~~~~~~~~~~~~~~~~~~~~~
     ..'label[0,10;liquid_update]'
 
     ..'button[3,9.8;0.75,1;lo_liquid_d;v]'
