@@ -12,3 +12,15 @@ Todo:
 - [x] clamp to min / max  
 - [x] tell Minetest to actually set values  
 - [ ] test if it does as expected  
+
+You'll want to back up your minetest.conf before using this.  
+I don't have access to multiple people logging on to my home machine, 
+...so I can't really test it.  I rely on your feedback.  
+
+**If** it doesn't do as expected, just disable, then restore your minetest.conf file.  
+Not a biggie.  Either way, you can look inside the code,  
+and see all the settings it tweaks to gain performance.  
+
+These are quite possibly the main settings to speed up your server.  
+If I find other ones, especially in certain mods that make a difference, I'll add them.  
+Let me know if you find any other tweaks that help.  
