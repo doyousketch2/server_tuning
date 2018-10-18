@@ -7,3 +7,5 @@ hopper?
 mobs?
 mobs_animal?
 mobs_monster?
+nssb?
+nssm?
