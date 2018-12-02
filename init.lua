@@ -724,22 +724,22 @@ minetest .register_on_player_receive_fields(
     --~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     elseif fields .lo_ttl_d then
-      if lo_ttl > 1 then lo_ttl  = lo_ttl -1 end
+      if lo_ttl > 10 then lo_ttl  = lo_ttl -10 end
       mod_storage :set_int( 'lo_ttl',  lo_ttl )
       recalculate_ttl()
 
     elseif fields .lo_ttl_u then
-      if lo_ttl < hi_ttl then lo_ttl  = lo_ttl +1 end
+      if lo_ttl < hi_ttl then lo_ttl  = lo_ttl +10 end
       mod_storage :set_int( 'lo_ttl',  lo_ttl )
       recalculate_ttl()
 
     elseif fields .hi_ttl_d then
-      if hi_ttl > 1 then hi_ttl  = hi_ttl -1 end
+      if hi_ttl > 10 then hi_ttl  = hi_ttl -10 end
       mod_storage :set_int( 'hi_ttl',  hi_ttl )
       recalculate_ttl()
 
     elseif fields .hi_ttl_u then
-      hi_ttl  = hi_ttl +1
+      hi_ttl  = hi_ttl +10
       mod_storage :set_int( 'hi_ttl',  hi_ttl )
       recalculate_ttl()
 
