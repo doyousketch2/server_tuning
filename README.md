@@ -11,7 +11,7 @@ Todo:
 - [x] calculate values based on # of active players  
 - [x] clamp to min / max  
 - [x] tell Minetest to actually set values  
-- [ ] test if it does as expected  
+- [x] test if it does as expected  
 
 You'll want to back up your minetest.conf before using this.  
 I don't have access to multiple people logging on to my home machine, 
